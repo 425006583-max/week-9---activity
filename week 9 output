@@ -1,0 +1,24 @@
+=== TESTING JEEPNEY OBJECT 1 ===
+--------------------------------------------------
+Jeepney Route    : Quiapo - Cubao
+Jeepney Color    : Silver
+Total Capacity   : 20 seats
+Passengers Onboard: 0
+--------------------------------------------------
+ The Silver jeepney running Quiapo - Cubao has started its engine.
+Picked up 15 passenger(s). Current load: 15/20
+Cannot pick up 10 passenger(s). Seat capacity (20) exceeded!
+mag bayad ka!"
+
+=== TESTING JEEPNEY OBJECT 2 ===
+--------------------------------------------------
+Jeepney Route    : Katipunan - UP Campus
+Jeepney Color    : Red
+Total Capacity   : 16 seats
+Passengers Onboard: 0
+--------------------------------------------------
+ The Red jeepney running Katipunan - UP Campus has started its engine.
+Picked up 12 passenger(s). Current load: 12/16
+mag bayad ka!"
+
+Jeepney 2 Current Passenger Count (via getter): 12
