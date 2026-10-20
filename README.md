@@ -1,1 +1,93 @@
-# week-9---activity
+
+class Jeepney {
+  
+  
+  // Mapped directly from Ice Breaker properties
+  
+  String route;    
+  String color;    
+  int capacity;    
+
+  // --------------------------------------------------------------------------
+  
+  // Protected state starting with an underscore '_'.
+  // Prevents external direct modification of onboard passenger counts.
+  // --------------------------------------------------------------------------
+  int _currentPassengers = 0;
+
+  // --------------------------------------------------------------------------
+ // CONSTRUCTOR
+  // Initializes initial field values when a new Jeepney object is created.
+  // --------------------------------------------------------------------------
+  Jeepney({
+    required this.route,
+    required this.color,
+    required this.capacity,
+  });
+
+  // 
+  // Allows safe read-only access to the private _currentPassengers 
+  int get currentPassengers => _currentPassengers;
+
+  
+  // BEHAVIORS (What it DOES) -> Methods
+  // Mapped directly from Ice Breaker behaviors[cite: 1]
+  
+  // Ice Breaker Behavior 1: Start engine[cite: 1]
+  void startEngine() {
+    print('Vroom! The $color jeepney running $route has started its engine.');
+  }
+
+  // Ice Breaker Behavior 2: Honk / Beep horn[cite: 1]
+  void honk() {
+    print('Beep beep! "Basta Driver, Sweet Lover!"');
+  }
+
+  // Controlled updating of the private _currentPassengers field.
+  void pickUpPassengers(int count) {
+    if (_currentPassengers + count <= capacity) {
+      _currentPassengers += count;
+      print('Picked up $count passenger(s). Current load: $_currentPassengers/$capacity');
+    } else {
+      print('Cannot pick up $count passenger(s). Seat capacity ($capacity) exceeded!');
+    }
+  }
+
+  // Helper  to display current object state
+  void displayInfo() {
+    print('--------------------------------------------------');
+    print('Jeepney Route    : $route');
+    print('Jeepney Color    : $color');
+    print('Total Capacity   : $capacity seats');
+    print('Passengers Onboard: $_currentPassengers');
+    print('--------------------------------------------------');
+  }
+}
+
+// 
+// STEP 6: CREATE & TEST OBJECTS IN main()
+// 
+void main() {
+  // STEP 5: STORE A COLLECTION OF OBJECTS USING A LIST
+  List<Jeepney> fleet = [
+    // Instance 1: Initialized with Quiapo - Cubao route[cite: 1]
+    Jeepney(route: 'Quiapo - Cubao', color: 'Silver', capacity: 20),
+    // Instance 2: Initialized with Katipunan route
+    Jeepney(route: 'Katipunan - UP Campus', color: 'Red', capacity: 16),
+  ];
+
+  print('=== TESTING JEEPNEY OBJECT 1 ===');
+  fleet[0].displayInfo();
+  fleet[0].startEngine();            
+  fleet[0].pickUpPassengers(15);     
+  fleet[0].pickUpPassengers(10);     
+  fleet[0].honk();                  
+  print('\n=== TESTING JEEPNEY OBJECT 2 ===');
+  fleet[1].displayInfo();
+  fleet[1].startEngine();            
+  fleet[1].pickUpPassengers(12);     
+  fleet[1].honk();                   
+
+  // Reading encapsulated data via Getter
+  print('\nJeepney 2 Current Passenger Count (via getter): ${fleet[1].currentPassengers}');
+}
